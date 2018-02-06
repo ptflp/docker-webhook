@@ -10,6 +10,7 @@ RUN         apk add --update -t build-deps curl go git libc-dev gcc libgcc && \
             mv -f ${SRCPATH}/webhook-* ${SRCPATH}/webhook && \
             cd ${SRCPATH}/webhook && go get -d && go build -o /usr/local/bin/webhook && \
             apk del --purge build-deps && \
+            apk add --update git && \
             rm -rf /var/cache/apk/* && \
             rm -rf ${GOPATH}
 
